@@ -1,7 +1,6 @@
 package example.tests;
 import com.example.Feline;
 import com.example.Lion;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
 public class LionTest {
@@ -46,6 +45,13 @@ public class LionTest {
         assertEquals(expected, actual);
     }
 
+    @Test(expected = Exception.class)
+    public void checkNotValidSexThrowsException() throws Exception {
+        String sex = "Мальчик";
+        Lion lion = new Lion(feline, sex);
+        lion.doesHaveMane();
+    }
+
 
     @Test
     public void checkLionHasOneKitten() throws Exception {
@@ -66,11 +72,4 @@ public class LionTest {
         assertEquals(expectedList, actualList);
     }
 
-    @Test
-    public void checkNotValidSexThrowsException(){
-        try {
-            new Lion(feline, sex + "ы");
-            Assert.fail();
-        } catch (Exception ignored) {}
-    }
 }

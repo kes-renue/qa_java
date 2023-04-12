@@ -30,11 +30,15 @@ public class FelineTest {
         Assert.assertEquals(expectedAmount, actualAmount);
     }
 
+    /* Вроде бы поняла, что тут важно проверить, что метод возвращает
+       ровно то, что мы ему передаём. Ни больше, ни меньше.
+       Немного поменяла тело теста в части expected result.
+       Надеюсь, поняла правильно.*/
     @Test
-    //не очень понятно, что требуется проверить в данном случае
-    public void checkGetKittensReturns_kittensCount(){
-        int actual = feline.getKittens();
-        int expected = feline.getKittens(1);
+    public void checkGetKittensReturnsGivenParameter(){
+        int actual = feline.getKittens(6);
+        int expected = 6;
         Assert.assertEquals(expected, actual);
     }
+
 }
