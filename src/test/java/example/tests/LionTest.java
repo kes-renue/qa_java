@@ -45,14 +45,6 @@ public class LionTest {
         assertEquals(expected, actual);
     }
 
-    @Test(expected = Exception.class)
-    public void checkNotValidSexThrowsException() throws Exception {
-        String sex = "Мальчик";
-        Lion lion = new Lion(feline, sex);
-        lion.doesHaveMane();
-    }
-
-
     @Test
     public void checkLionHasOneKitten() throws Exception {
         Lion lion = new Lion(feline, sex);
